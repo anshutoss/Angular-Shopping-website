@@ -1,0 +1,58 @@
+<nav class="navbar navbar-inverse navbar-static-top" id="nav">
+    <div class="container-fluid">
+      
+      <div class="navbar-header">
+        
+        <a href="#" class="navbar-brand"> <span> <img src="./../assets/Ekart.png" style="width:60px;"></span>
+          
+          EKart</a>
+      </div>
+      <ul class="nav navbar-nav navbar-left">
+        <form class="navbar-form" role="search">
+          <div style="display:table;" class="input-group">
+            <input type="text" autocomplete="off" placeholder="Search product" name="search" #search class="form-control">
+            <div class="input-group-btn" style="width: 5%;">
+              <button class="btn btn-primary" type="submit" (click)="serachProduct(search.value)">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </ul>
+    </div>
+    <br>
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li>
+          <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home"></span> Home</a>
+        </li>
+        <li *ngIf="!isSellerLogin && !isCustomerLogin">
+          <a  [routerLink]="['/login']">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+        <li *ngIf="!isSellerLogin && !isCustomerLogin">
+          <a [routerLink]="['/signup']">
+            <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+        </li>
+        <!-- <span class="test rounded-circle">{{count}}</span> -->
+        <li>
+          <a [routerLink]="['/cart']">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Cart </a>
+          </li>
+        <li *ngIf="isSellerLogin">
+          <a>
+            <span class="glyphicon glyphicon-user"></span> {{userName}}'s Profile</a>
+        </li>
+        <li *ngIf="isCustomerLogin">
+          <a>
+            <span class="glyphicon glyphicon-user"></span> {{userName}}'s Profile</a>
+        </li>
+        <!-- li *ngIf="isCustomerLogin || isSellerLogin">
+          <a (click)="logout()" style="cursor:pointer">
+            <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- <router-outlet></router-outlet> -->

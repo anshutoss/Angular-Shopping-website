@@ -1,0 +1,8 @@
+<div class="container">
+  <h3 *ngIf="totalProducts>0" class="result">{{ totalProducts }} Result Found</h3>
+  <h3 *ngIf="totalProducts==0" class="result">No Products Found</h3>
+  <hr />
+    <ul *ngIf="totalProducts>0">
+        <li *ngFor="let p of products">{{p.displayName}}</li>
+    </ul>
+</div>
